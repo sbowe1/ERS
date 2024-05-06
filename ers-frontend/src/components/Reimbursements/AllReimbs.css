@@ -1,0 +1,62 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    top: 50%;
+    transform: translate(0, -50%);
+    margin: auto;
+    position: absolute;
+    padding: 25%;
+}
+
+.reimbursement-container{
+    text-align: center;
+    background-color: white;
+    border-radius: 20px;
+    padding-top: 7px;
+    padding-bottom: 25px;
+}
+
+table{
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 3px;
+    border-collapse: collapse;
+}
+
+th{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+td{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+th, td{
+    margin: 0;
+    border: solid 1px;
+    border-collapse: collapse;
+}
+
+tbody{
+    text-align: center;
+}
+
+caption{
+    caption-side: top;
+    font-weight: bolder;
+    padding: 10px;
+}
+
+#new-description{
+    padding: 5px;
+    margin: 2px;
+}
+
+#submit-description{
+    margin: auto;
+}

@@ -1,0 +1,33 @@
+.home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    top: 50%;
+    transform: translate(0, -50%);
+    margin: auto;
+    position: absolute;
+    padding: 25%;
+}
+
+.home-container{
+    text-align: center;
+    background-color: white;
+    border-radius: 20px;
+    padding-bottom: 15px;
+}
+
+.home-button{
+    background-color: lightgray;
+    padding: 5px;
+    margin: 10px 5px;
+    border-radius: 10px;
+}
+
+#logout{
+    float: right;
+}
+
+#home{
+    float: left;
+}
