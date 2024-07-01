@@ -1,0 +1,38 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'mymaven'
+    }
+
+    stages {
+        stage('build maven') {
+            steps {
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'myjenkinscredential', url: 'https://github.com/sbowe1/ERS']])
+
+                // going into backend folder with POM
+                dir('ers-backend') {
+                    bat 'mvn clean install'
+                }
+            }
+        }
+        stage('build docker image') {
+            steps {
+                dir('ers-backend') {
+                    bat 'docker build -t sidneyb1202/mydocker .'
+                }
+            }
+        }
+        stage('push images to hub') {
+            steps {
+                script {
+                    withCredentials([usernamePassword(credentialsId: 'dockerhublogin', passwordVariable: 'dockerhubpassword', usernameVariable: 'dockerhubusername')]) {
+                        bat "docker login -u $dockerhubusername -p $dockerhubpassword docker.io"
+
+                        bat 'docker push sidneyb1202/mydocker'
+                    }
+                }
+            }
+        }
+    }
+}
